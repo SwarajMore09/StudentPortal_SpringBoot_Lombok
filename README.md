@@ -1,4 +1,4 @@
-# Marvellous Portal
+# StudentPortal_SpringBoot_Lombok Portal
 
 <div align="center">
 
