@@ -31,7 +31,7 @@
 
 ## 🎯 Overview
 
-Marvellous Portal is a robust, enterprise-ready REST API application built with Spring Boot that provides comprehensive batch management capabilities. The application demonstrates modern Java development practices, featuring a clean architecture, comprehensive error handling, and seamless MongoDB integration for scalable data management.
+Student Portal is a robust, enterprise-ready REST API application built with Spring Boot that provides comprehensive batch management capabilities. The application demonstrates modern Java development practices, featuring a clean architecture, comprehensive error handling, and seamless MongoDB integration for scalable data management.
 
 ### Key Highlights
 
@@ -99,12 +99,12 @@ Marvellous Portal is a robust, enterprise-ready REST API application built with 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/MarvellousPortal.git
-cd MarvellousPortal
+git clone https://github.com/your-username/StudentPortal.git
+cd StudentPortal
 
 # Or using SSH
-git clone git@github.com:your-username/MarvellousPortal.git
-cd MarvellousPortal
+git clone git@github.com:your-username/StudentPortal.git
+cd StudentPortal
 ```
 
 ### 2. Database Configuration
@@ -138,19 +138,19 @@ Update the database configuration in `src/main/resources/application.properties`
 
 ```properties
 # Application Configuration
-spring.application.name=MarvellousPortal
+spring.application.name=StudentPortal
 server.port=8080
 
 # MongoDB Configuration (Local)
 spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
-spring.data.mongodb.database=MarvellousFullStack
+spring.data.mongodb.database=StudentFullStack
 
 # MongoDB Configuration (Atlas) - Uncomment and configure
-# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/MarvellousFullStack?retryWrites=true&w=majority
+# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/StudentFullStack?retryWrites=true&w=majority
 
 # Logging Configuration
-logging.level.com.marvellous.MarvellousPortal=DEBUG
+logging.level.com.Student.StudentPortal=DEBUG
 logging.level.org.springframework.data.mongodb=DEBUG
 ```
 
@@ -170,7 +170,7 @@ mvn clean package
 mvn spring-boot:run
 
 # Or run the JAR file
-java -jar target/MarvellousPortal-0.0.1-SNAPSHOT.jar
+java -jar target/StudentPortal-0.0.1-SNAPSHOT.jar
 ```
 
 ### 5. Verify Installation
@@ -178,7 +178,7 @@ java -jar target/MarvellousPortal-0.0.1-SNAPSHOT.jar
 Once the application starts, you should see:
 
 ```
-Started MarvellousPortalApplication in X.XXX seconds (JVM running for X.XXX)
+Started StudentPortalApplication in X.XXX seconds (JVM running for X.XXX)
 ```
 
 **Application URL**: `http://localhost:8080`
@@ -368,7 +368,7 @@ GET /health
 {
   "status": "UP",
   "timestamp": "2024-01-15T10:30:00Z",
-  "application": "MarvellousPortal",
+  "application": "StudentPortal",
   "version": "0.0.1-SNAPSHOT"
 }
 ```
@@ -438,10 +438,10 @@ The application follows a clean, layered architecture pattern that promotes sepa
 ### Project Structure
 
 ```
-MarvellousPortal/
+StudentPortal/
 ├── 📁 src/
 │   ├── 📁 main/
-│   │   ├── 📁 java/com/marvellous/MarvellousPortal/
+│   │   ├── 📁 java/com/Student/StudentPortal/
 │   │   │   ├── 📁 controller/                    # REST API Layer
 │   │   │   │   ├── 📄 BatchEntryController.java  # Batch management endpoints
 │   │   │   │   └── 📄 HealthCheck.java          # System health monitoring
@@ -452,14 +452,14 @@ MarvellousPortal/
 │   │   │   │   └── 📄 Interface.java            # Common repository contracts
 │   │   │   ├── 📁 Entiy/                         # Domain Model Layer
 │   │   │   │   └── 📄 BatchEntry.java           # MongoDB document entity
-│   │   │   └── 📄 MarvellousPortalApplication.java # Application bootstrap
+│   │   │   └── 📄 StudentPortalApplication.java # Application bootstrap
 │   │   └── 📁 resources/
 │   │       ├── 📄 application.properties        # Application configuration
 │   │       ├── 📁 static/                       # Static web resources
 │   │       └── 📁 templates/                    # View templates
 │   └── 📁 test/
-│       └── 📁 java/com/marvellous/MarvellousPortal/
-│           └── 📄 MarvellousPortalApplicationTests.java # Test suite
+│       └── 📁 java/com/Student/StudentPortal/
+│           └── 📄 StudentPortalApplicationTests.java # Test suite
 ├── 📄 pom.xml                                    # Maven configuration
 ├── 📄 README.md                                  # Project documentation
 └── 📄 .gitignore                                 # Git ignore rules
@@ -505,21 +505,21 @@ The application configuration is managed through `application.properties`:
 
 ```properties
 # Application Configuration
-spring.application.name=MarvellousPortal
+spring.application.name=StudentPortal
 server.port=8080
 server.servlet.context-path=/
 
 # MongoDB Configuration (Local Development)
 spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
-spring.data.mongodb.database=MarvellousFullStack
+spring.data.mongodb.database=StudentFullStack
 spring.data.mongodb.authentication-database=admin
 
 # MongoDB Configuration (Production - Atlas)
-# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/MarvellousFullStack?retryWrites=true&w=majority
+# spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/StudentFullStack?retryWrites=true&w=majority
 
 # Logging Configuration
-logging.level.com.marvellous.MarvellousPortal=INFO
+logging.level.com.Student.StudentPortal=INFO
 logging.level.org.springframework.data.mongodb=WARN
 logging.level.org.springframework.web=INFO
 logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
@@ -534,15 +534,15 @@ management.endpoint.health.show-details=when-authorized
 #### Development Environment
 ```properties
 # application-dev.properties
-spring.data.mongodb.database=MarvellousFullStack_Dev
-logging.level.com.marvellous.MarvellousPortal=DEBUG
+spring.data.mongodb.database=StudentFullStack_Dev
+logging.level.com.Student.StudentPortal=DEBUG
 ```
 
 #### Production Environment
 ```properties
 # application-prod.properties
 spring.data.mongodb.uri=${MONGODB_URI}
-logging.level.com.marvellous.MarvellousPortal=WARN
+logging.level.com.Student.StudentPortal=WARN
 management.endpoints.web.exposure.include=health
 ```
 
@@ -552,7 +552,7 @@ management.endpoints.web.exposure.include=health
 |----------|---------------|-------------|
 | `spring.data.mongodb.host` | localhost | MongoDB server hostname |
 | `spring.data.mongodb.port` | 27017 | MongoDB server port |
-| `spring.data.mongodb.database` | MarvellousFullStack | Database name |
+| `spring.data.mongodb.database` | StudentFullStack | Database name |
 | `spring.data.mongodb.collection` | BatchDetails | Collection name (defined in entity) |
 
 ## 📦 Dependencies
@@ -671,11 +671,11 @@ The project uses Maven for dependency management with Spring Boot's dependency m
 
 <div align="center">
 
-**Built with ❤️ by the Marvellous Portal Team**
+**Built with ❤️ by the Student Portal Team**
 
-[![GitHub stars](https://img.shields.io/github/stars/your-username/MarvellousPortal?style=social)](https://github.com/your-username/MarvellousPortal)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/MarvellousPortal?style=social)](https://github.com/your-username/MarvellousPortal)
-[![GitHub issues](https://img.shields.io/github/issues/your-username/MarvellousPortal)](https://github.com/your-username/MarvellousPortal/issues)
+[![GitHub stars](https://img.shields.io/github/stars/your-username/StudentPortal?style=social)](https://github.com/your-username/StudentPortal)
+[![GitHub forks](https://img.shields.io/github/forks/your-username/StudentPortal?style=social)](https://github.com/your-username/StudentPortal)
+[![GitHub issues](https://img.shields.io/github/issues/your-username/StudentPortal)](https://github.com/your-username/StudentPortal/issues)
 
 **Happy Coding! 🚀**
 
